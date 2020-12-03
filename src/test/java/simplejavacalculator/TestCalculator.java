@@ -1,4 +1,4 @@
-package simplejavacalculatorTest;
+package simplejavacalculator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -8,11 +8,23 @@ import org.junit.jupiter.api.Test;
 import static java.lang.Double.NaN;
 import java.lang.Math;
 
-import simplejavacalculator.Calculator;
-
 public class TestCalculator{
     Calculator calculator = new Calculator();
     Double result = 0.0;
+
+    @Test
+    public void testUI(){
+        try {
+            UI uiCal = new UI();
+            uiCal.init();
+            uiCal.writer(69.69);
+            assertEquals(uiCal.reader(), 69.69, 1e-9);
+            uiCal.actionPerformed(null);
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
     @Test
     public void testAdditionSubstraction(){
         calculator.calculateBi(Calculator.BiOperatorModes.add, 127938.489);
@@ -99,6 +111,7 @@ public class TestCalculator{
     public void testLog(){
         assertEquals(calculator.calculateMono(Calculator.MonoOperatorModes.log, 100.0), 2.0, 1e-9);
         assertEquals(calculator.calculateMono(Calculator.MonoOperatorModes.log, 1.0), 0.0, 1e-9);
+        assertEquals(calculator.calculateMono(Calculator.MonoOperatorModes.log, -1.0), NaN);
     }
 
     @Test
