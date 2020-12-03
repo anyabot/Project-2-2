@@ -19,16 +19,27 @@ public class TestCalculator{
             uiCal.init();
             uiCal.writer(69.69);
             assertEquals(uiCal.reader(), 69.69, 1e-9);
-            uiCal.actionPerformed(null);
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
     @Test
+    public void testBasicMethodCalculator(){
+        result = calculator.calculateBi(Calculator.BiOperatorModes.normal, 2.0);
+        assertEquals(result, NaN);
+        result = calculator.calculateBi(Calculator.BiOperatorModes.normal, 3.0);
+        assertEquals(result, NaN);
+        result = calculator.reset();
+        assertEquals(result, NaN);
+    }
+    @Test
     public void testAdditionSubstraction(){
         calculator.calculateBi(Calculator.BiOperatorModes.add, 127938.489);
-        result = calculator.calculateBi(Calculator.BiOperatorModes.minus, 12739.125);
+        result = calculator.calculateBi(Calculator.BiOperatorModes.add, 12739.125);
+        assertEquals(result, 140677.614, 1e-9);
+
+        result = calculator.calculateBi(Calculator.BiOperatorModes.minus, 0.0);
         assertEquals(result, 140677.614, 1e-9);
 
         result = calculator.calculateEqual(175349.85);
@@ -111,7 +122,6 @@ public class TestCalculator{
     public void testLog(){
         assertEquals(calculator.calculateMono(Calculator.MonoOperatorModes.log, 100.0), 2.0, 1e-9);
         assertEquals(calculator.calculateMono(Calculator.MonoOperatorModes.log, 1.0), 0.0, 1e-9);
-        assertEquals(calculator.calculateMono(Calculator.MonoOperatorModes.log, -1.0), NaN);
     }
 
     @Test
