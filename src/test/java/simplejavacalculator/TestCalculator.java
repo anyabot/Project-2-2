@@ -14,15 +14,10 @@ public class TestCalculator{
 
     @Test
     public void testUI(){
-        try {
-            UI uiCal = new UI();
-            uiCal.init();
-            uiCal.writer(69.69);
-            assertEquals(uiCal.reader(), 69.69, 1e-9);
-        }
-        catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        UI uiCal = new UI();
+        uiCal.init();
+        uiCal.writer(69.69);
+        assertEquals(uiCal.reader(), 69.69, 1e-9);
     }
     @Test
     public void testBasicMethodCalculator(){
