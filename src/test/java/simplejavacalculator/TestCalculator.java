@@ -116,7 +116,7 @@ public class TestCalculator{
     @Test
     public void testSin(){
         assertEquals(0.5, calculator.calculateMono(Calculator.MonoOperatorModes.sin, Math.PI / 6), 1e-9);
-        assertEquals(1.0, calculator.calculateMono(Calculator.MonoOperatorModes.cos, Math.PI / 2), 1e-9);
+        assertEquals(1.0, calculator.calculateMono(Calculator.MonoOperatorModes.sin, Math.PI / 2), 1e-9);
     }
 
     @Test
