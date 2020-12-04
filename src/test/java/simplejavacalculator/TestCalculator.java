@@ -122,6 +122,8 @@ public class TestCalculator{
     @Test
     public void testTan(){
         assertEquals(1.0, calculator.calculateMono(Calculator.MonoOperatorModes.tan, 45.0), 1e-9);
+        assertEquals(0, calculator.calculateMono(Calculator.MonoOperatorModes.tan, 180.0), 1e-9);
+        assertEquals(0, calculator.calculateMono(Calculator.MonoOperatorModes.tan, 0.0), 1e-9);
     }
 
     @Test
