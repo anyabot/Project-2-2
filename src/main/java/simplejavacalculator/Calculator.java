@@ -13,6 +13,15 @@ import static java.lang.Math.log10;
 import static java.lang.Math.pow;
 
 public class Calculator {
+    /**
+     * PI is the pi value.
+     */
+    private static final int PI = 90;
+
+    /**
+     * PERCENT is the percentage.
+     */
+    private static final int PERCENT = 100;
 
     public enum BiOperatorModes {
         /**
@@ -105,10 +114,18 @@ public class Calculator {
         }
     }
 
-    public Double calculateEqual(Double num) {
+    /**
+     * calculateEqual return the number as is.
+     * @return the given number
+     * @param num the given number
+     */
+    public Double calculateEqual(final Double num) {
         return calculateBi(BiOperatorModes.normal, num);
     }
-
+    /**
+     * reset reset the value of num1 and num2 to 0, and mode to normal.
+     * @return NaN
+     */
     public Double reset() {
         num2 = 0.0;
         num1 = 0.0;
@@ -116,8 +133,13 @@ public class Calculator {
 
         return NaN;
     }
-
-    public Double calculateMono(MonoOperatorModes newMode, Double num) {
+    /**
+     * calculateMono return the result of a operation that requires one operand.
+     * @return result of newMode operation
+     * @param newMode type of operation
+     * @param num second operand
+     */
+    public Double calculateMono(final MonoOperatorModes newMode, final Double num) {
         if (newMode == MonoOperatorModes.square) {
             return num * num;
         }
@@ -134,10 +156,10 @@ public class Calculator {
             return Math.sin(Math.toRadians(num));
         }
         if (newMode == MonoOperatorModes.tan) {
-            if (num == 0 || num % 180 == 0) {
+            if (num == 0 || num % (2 * PI) == 0) {
                 return 0.0;
             }
-            if (num % 90 == 0 && num % 180 != 0) {
+            if (num % PI == 0 && num % (2 * PI) != 0) {
                 return NaN;
             }
 
@@ -147,9 +169,9 @@ public class Calculator {
             return log10(num);
         }
         if (newMode == MonoOperatorModes.rate) {
-           return num / 100;
+           return num / PERCENT;
         }
-        if (newMode == MonoOperatorModes.abs){
+        if (newMode == MonoOperatorModes.abs) {
             return Math.abs(num);
         }
 
