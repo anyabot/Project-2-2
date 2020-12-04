@@ -54,7 +54,11 @@ public class TestCalculator{
         result = calculator.calculateEqual(25239.0);
         assertEquals(result, 6.0, 1e-9);
     }
-
+    @Test
+    public void testOneDividedBy(){
+        assertEquals(calculator.calculateMono(Calculator.MonoOperatorModes.oneDevidedBy, 1.0), 1.0);
+        assertEquals(calculator.calculateMono(Calculator.MonoOperatorModes.oneDevidedBy, -1.0), -1.0);
+    }
     @Test
     public void testPower(){
         calculator.calculateBi(Calculator.BiOperatorModes.xpowerofy, 2.0);
@@ -100,12 +104,14 @@ public class TestCalculator{
 
     @Test
     public void testCosine(){
-        assertEquals(calculator.calculateMono(Calculator.MonoOperatorModes.cos, Math.PI/3), 0.5, 1e-9);
+        assertEquals(calculator.calculateMono(Calculator.MonoOperatorModes.cos, Math.PI / 3), 0.5, 1e-9);
+        assertEquals(calculator.calculateMono(Calculator.MonoOperatorModes.cos, Math.PI / 2), 0.0, 1e-9);
     }
 
     @Test
     public void testSin(){
         assertEquals(calculator.calculateMono(Calculator.MonoOperatorModes.sin, Math.PI / 6), 0.5, 1e-9);
+        assertEquals(calculator.calculateMono(Calculator.MonoOperatorModes.cos, Math.PI / 2), 1.0, 1e-9);
     }
 
     @Test
@@ -127,6 +133,7 @@ public class TestCalculator{
     @Test
     public void testLogNegativeNumber(){
         assertEquals(calculator.calculateMono(Calculator.MonoOperatorModes.log, -1.0), NaN);
+        assertEquals(calculator.calculateMono(Calculator.MonoOperatorModes.log, 0.0), NaN);
     }
 
     @Test
