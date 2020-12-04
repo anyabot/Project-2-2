@@ -134,6 +134,10 @@ public class TestCalculator{
     @Test
     public void testLogNegativeNumber(){
         assertEquals(NaN, calculator.calculateMono(Calculator.MonoOperatorModes.log, -1.0));
+    }
+
+    @Test
+    public void testLogZero(){
         assertEquals(NaN, calculator.calculateMono(Calculator.MonoOperatorModes.log, 0.0));
     }
 
