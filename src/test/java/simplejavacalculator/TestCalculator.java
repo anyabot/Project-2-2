@@ -109,24 +109,24 @@ public class TestCalculator{
 
     @Test
     public void testCosine(){
-        assertEquals(0.5, calculator.calculateMono(Calculator.MonoOperatorModes.cos, Math.PI / 3), 1e-9);
-        assertEquals(0.0, calculator.calculateMono(Calculator.MonoOperatorModes.cos, Math.PI / 2), 1e-9);
+        assertEquals(0.5, calculator.calculateMono(Calculator.MonoOperatorModes.cos, 60.0), 1e-9);
+        assertEquals(0.0, calculator.calculateMono(Calculator.MonoOperatorModes.cos, 90.0), 1e-9);
     }
 
     @Test
     public void testSin(){
-        assertEquals(0.5, calculator.calculateMono(Calculator.MonoOperatorModes.sin, Math.PI / 6), 1e-9);
-        assertEquals(1.0, calculator.calculateMono(Calculator.MonoOperatorModes.sin, Math.PI / 2), 1e-9);
+        assertEquals(0.5, calculator.calculateMono(Calculator.MonoOperatorModes.sin, 30.0), 1e-9);
+        assertEquals(1.0, calculator.calculateMono(Calculator.MonoOperatorModes.sin, 90.0), 1e-9);
     }
 
     @Test
     public void testTan(){
-        assertEquals(1.0, calculator.calculateMono(Calculator.MonoOperatorModes.tan, Math.PI / 4), 1e-9);
+        assertEquals(1.0, calculator.calculateMono(Calculator.MonoOperatorModes.tan, 45.0), 1e-9);
     }
 
     @Test
     public void testTanOfRightAngle(){
-        assertEquals(NaN, calculator.calculateMono(Calculator.MonoOperatorModes.tan, Math.PI / 2));
+        assertEquals(NaN, calculator.calculateMono(Calculator.MonoOperatorModes.tan, 90.0 / 2));
     }
 
     @Test
