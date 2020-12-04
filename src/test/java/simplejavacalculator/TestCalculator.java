@@ -126,7 +126,7 @@ public class TestCalculator{
 
     @Test
     public void testTanOfRightAngle(){
-        assertEquals(NaN, calculator.calculateMono(Calculator.MonoOperatorModes.tan, 90.0 / 2));
+        assertEquals(NaN, calculator.calculateMono(Calculator.MonoOperatorModes.tan, 90.0));
     }
 
     @Test
