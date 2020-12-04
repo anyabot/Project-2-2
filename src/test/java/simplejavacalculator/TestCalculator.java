@@ -73,8 +73,9 @@ public class TestCalculator{
         calculator.calculateBi(Calculator.BiOperatorModes.divide, 1.0);
         assertEquals(POSITIVE_INFINITY, calculator.calculateEqual(0.0));
         assertEquals(POSITIVE_INFINITY, calculator.calculateMono(Calculator.MonoOperatorModes.oneDevidedBy, 0.0));
-        Double negzero = -0.0;
-        assertEquals(NEGATIVE_INFINITY, calculator.calculateMono(Calculator.MonoOperatorModes.oneDevidedBy, negzero));
+        assertEquals(0.0, calculator.calculateMono(Calculator.MonoOperatorModes.oneDevidedBy, POSITIVE_INFINITY));
+        assertEquals(NEGATIVE_INFINITY, calculator.calculateMono(Calculator.MonoOperatorModes.oneDevidedBy, -0.0));
+        assertEquals(-0.0, calculator.calculateMono(Calculator.MonoOperatorModes.oneDevidedBy, NEGATIVE_INFINITY));
     }
 
     @Test
@@ -142,8 +143,6 @@ public class TestCalculator{
     @Test
     public void testLogZero(){
         assertEquals(NEGATIVE_INFINITY, calculator.calculateMono(Calculator.MonoOperatorModes.log, 0.0));
-        Double negzero = -0.0;
-        assertEquals(NaN, calculator.calculateMono(Calculator.MonoOperatorModes.log, negzero));
     }
 
     @Test
