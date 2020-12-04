@@ -20,6 +20,7 @@
 		<maven.compiler.version>3.8.1</maven.compiler.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<surefireVersion>2.19.1</surefireVersion>
 	</properties>
 	<build>
 		<plugins>
@@ -36,6 +37,26 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-site-plugin</artifactId>
 				<version>3.7.1</version>
+			</plugin>
+			<plugin>
+				<!--
+                A plugin which uses the JUnit framework in order to start
+                our junit suite "AllTests" after the sources are compiled.
+                -->
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${surefireVersion}</version>
+				<configuration>
+					<test>org/junit/tests/AllTests.java</test>
+					<useSystemClassLoader>true</useSystemClassLoader>
+					<enableAssertions>false</enableAssertions>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.surefire</groupId>
+						<artifactId>surefire-junit47</artifactId>
+						<version>${surefireVersion}</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
