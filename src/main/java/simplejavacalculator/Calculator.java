@@ -139,7 +139,8 @@ public class Calculator {
      * @param newMode type of operation
      * @param num second operand
      */
-    public Double calculateMono(final MonoOperatorModes newMode, final Double num) {
+    public Double calculateMono(final MonoOperatorModes newMode,
+                                final Double num) {
         if (newMode == MonoOperatorModes.square) {
             return num * num;
         }
