@@ -1,11 +1,12 @@
 package simplejavacalculator;
 
+import static java.lang.Double.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
-import static java.lang.Double.NaN;
+
 import java.lang.Math;
 
 public class TestCalculator{
@@ -70,8 +71,9 @@ public class TestCalculator{
     @Test
     public void testDivisionByZero(){
         calculator.calculateBi(Calculator.BiOperatorModes.divide, 1.0);
-        assertEquals(NaN, calculator.calculateEqual(0.0));
-        assertEquals(NaN, calculator.calculateMono(Calculator.MonoOperatorModes.oneDevidedBy, 0.0));
+        assertEquals(POSITIVE_INFINITY, calculator.calculateEqual(0.0));
+        assertEquals(POSITIVE_INFINITY, calculator.calculateMono(Calculator.MonoOperatorModes.oneDevidedBy, 0.0));
+        assertEquals(NEGATIVE_INFINITY, calculator.calculateMono(Calculator.MonoOperatorModes.oneDevidedBy, 0.0));
     }
 
     @Test
@@ -138,7 +140,8 @@ public class TestCalculator{
 
     @Test
     public void testLogZero(){
-        assertEquals(NaN, calculator.calculateMono(Calculator.MonoOperatorModes.log, 0.0));
+        assertEquals(NEGATIVE_INFINITY, calculator.calculateMono(Calculator.MonoOperatorModes.log, 0.0));
+        assertEquals(NaN, calculator.calculateMono(Calculator.MonoOperatorModes.log, -0.0));
     }
 
     @Test
