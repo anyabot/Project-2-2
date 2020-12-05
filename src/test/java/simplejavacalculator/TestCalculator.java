@@ -33,7 +33,6 @@ public class TestCalculator{
         assertEquals(NaN, result);
         result = calculator.reset();
         assertEquals(NaN, result);
-        assertEquals(1.0, calculator.calculateEqual(1.0));
     }
     @Test
     public void testAdditionSubstraction(){
