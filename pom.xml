@@ -16,7 +16,7 @@
 		</dependency>
 	</dependencies>
 	<properties>
-		<java.version>1.5</java.version>
+		<java.version>1.8</java.version>
 		<maven.compiler.version>3.8.1</maven.compiler.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -100,6 +100,11 @@
 						</reports>
 					</reportSet>
 				</reportSets>
+				<configuration>
+					<formats>
+						<format>xml</format>
+					</formats>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
