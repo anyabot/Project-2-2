@@ -175,6 +175,7 @@ public class UI implements ActionListener {
       panelSub6 = new JPanel(new FlowLayout());
       panelSub7 = new JPanel(new FlowLayout());
       panelSub8 = new JPanel(new FlowLayout());
+
       final int plainfontsize = 18;
       final int boldfontsize = 24;
       final int rowsize = 1;
@@ -187,6 +188,7 @@ public class UI implements ActionListener {
       for (int i = 0; i < numberlength; i++) {
          but[i] = new JButton(String.valueOf(i));
       }
+
       butAdd = new JButton("+");
       butMinus = new JButton("-");
       butMultiply = new JButton("*");
@@ -204,6 +206,7 @@ public class UI implements ActionListener {
       butabs = new JButton("abs(x)");
       butCancel = new JButton("C");
       butBinary = new JButton("Bin");
+
       calc = new Calculator();
    }
    /***
@@ -212,13 +215,16 @@ public class UI implements ActionListener {
    public void init() {
       final int uisize = 450;
       final int numberlength = 10;
+
       frame.setSize(uisize, uisize);
       frame.setVisible(true);
       frame.setLocationRelativeTo(null);
       frame.setResizable(false);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
       text.setFont(textFont);
       text.setEditable(false);
+
       for (int i = 0; i < numberlength; i++) {
          but[i].setFont(font);
       }
@@ -239,6 +245,7 @@ public class UI implements ActionListener {
       butabs.setFont(font);
       butCancel.setFont(font);
       butBinary.setFont(font);
+
       final int panelwidth = 100;
       final int zerowidth = 210;
       final int buttonwidth = 15;
@@ -252,9 +259,11 @@ public class UI implements ActionListener {
       final int butt8 = 8;
       final int butt9 = 9;
       final int butt0 = 0;
+
       panel.add(Box.createHorizontalStrut(panelwidth));
       panelSub1.add(text);
       panel.add(panelSub1);
+
       panelSub2.add(but[butt1]);
       panelSub2.add(but[butt2]);
       panelSub2.add(but[butt3]);
@@ -262,6 +271,7 @@ public class UI implements ActionListener {
       panelSub2.add(butAdd);
       panelSub2.add(butMinus);
       panel.add(panelSub2);
+
       panelSub3.add(but[butt4]);
       panelSub3.add(but[butt5]);
       panelSub3.add(but[butt6]);
@@ -269,6 +279,7 @@ public class UI implements ActionListener {
       panelSub3.add(butMultiply);
       panelSub3.add(butDivide);
       panel.add(panelSub3);
+
       panelSub4.add(but[butt7]);
       panelSub4.add(but[butt8]);
       panelSub4.add(but[butt9]);
@@ -276,26 +287,32 @@ public class UI implements ActionListener {
       panelSub4.add(butEqual);
       panelSub4.add(butCancel);
       panel.add(panelSub4);
+
       panelSub5.add(but[butt0]);
       panelSub5.add(Box.createHorizontalStrut(zerowidth));
       panel.add(panelSub5);
+
       panelSub6.add(butSquare);
       panelSub6.add(butSquareRoot);
       panelSub6.add(butOneDevidedBy);
       panelSub6.add(butxpowerofy);
       panel.add(panelSub6);
+
       panelSub7.add(butCos);
       panelSub7.add(butSin);
       panelSub7.add(butTan);
       panel.add(panelSub7);
+
       panelSub8.add(butlog);
       panelSub8.add(butrate);
       panelSub8.add(butabs);
       panelSub8.add(butBinary);
       panel.add(panelSub8);
+
       for (int i = 0; i < numberlength; i++) {
          but[i].addActionListener(this);
       }
+
       butAdd.addActionListener(this);
       butMinus.addActionListener(this);
       butMultiply.addActionListener(this);
